@@ -67,14 +67,14 @@ rails s
 
   Application Description|
   ----------------------|
- 1. App directs users who arn't logged in to a sign in / sign up page|
- 2. When a user is logged in it will bring them to the home page with a list of products|
- 3. logged in users can click on products to see a discription of the product (show page)|
- 4. show page lets a user see a country of orgin for a product, price & all reviews associated with the product|
- 5. show page will have a link for a user to add a review for a product|
- 6. A user with admin privilages will give the user full CRUD functionality for products and reviews|
- 7. When user is logged in a logout link willremain at the top of the page for the user click to logout.|
- 8. When user is logged in a home link will remain at the top of the page for the user click to be directed back to the home page.| 
+ 1. add active storage and a photo to each recipe
+ 2. set up feed page to show photo of each recipe and make clickable to bring to a show page about the recipe.
+ 3. profile page to show a user their profile and their added recipes
+ 4. let a user pin a recipe to see on their profile page under pinned recipes
+ 5. let user edit, delete, add personal info
+ 6. route protection for users only able to edit their own recipes unless a user has admin privleges 
+ 7. make ingredients table with a many to many relationship with recipes
+ 8. let user upload profile photo
 
 ## Known Bugs
 
