@@ -1,1 +1,11 @@
-<h1> Hello world</h1>
+
+<% if !user_signed_in? %>
+<h1> Shit I Can Cook </h1>
+<p> <%= link_to "Sign Up", new_user_registration_path %> </p>
+<p> <%= link_to "Sign In", new_user_session_path %></p>
+
+<% else %>
+<%= render "recipes/index"%>
+
+<% end %>
+
