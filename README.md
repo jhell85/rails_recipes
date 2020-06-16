@@ -1,4 +1,8 @@
 
+
+NEED TO MAKE PHOTOS DISPLAY, ALL CRUD FUNC WORK, MAKE PROFILE PAGES, STYLES, AUTHORIZATION!
+
+
 #### By _**Joshua Hellman** _
 
 ## Description

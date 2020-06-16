@@ -1,0 +1,11 @@
+<h1><%= @recipe.name %></h1>
+<h1><%= @recipe.content %></h1>
+<h1><%= @recipe.author %></h1>
+<% if @recipe.image.attached? %>
+  <%= image_tag @recipe.image %>
+<% end %>
+<% if (current_user && current_user.admin) || (current_user.id == Recipe.find(params[:id]).user_id) %>
+  <p><%= link_to "Edit", edit_recipe_path(@recipe) %></p>
+  <p><%= link_to "Delete", recipe_path(@recipe), :method => 'delete' %></p>
+
+<% end %>

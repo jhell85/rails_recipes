@@ -1,0 +1,15 @@
+<%= form_for @recipe do |f| %>
+  <%= f.label :Title_your_recipe %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+  <br>
+  <%= f.label :content %>
+  <%= f.text_area :content, size: "60x10" %>
+  <br>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <br>
+  <%= f.submit %>
+<% end %>

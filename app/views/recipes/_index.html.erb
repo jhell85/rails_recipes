@@ -1,3 +1,16 @@
 <h1>Recipes index</h1>
 
+<% if @recipes.any? %>
+  <ul>
+    <% @recipes.each do |recipe| %>
+      <% if recipe.image.attached? %>
+        <%= image_tag recipe.image %>
+      <% end %>
+      <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no recipes yet.</p>
+<% end %>
+
 <p><%= link_to "new recipe", new_recipe_path %></p>
