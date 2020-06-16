@@ -1,11 +1,13 @@
+<div class="jumbotron">
 
-<% if !user_signed_in? %>
-<h1> Shit I Can Cook </h1>
-<p> <%= link_to "Sign Up", new_user_registration_path %> </p>
-<p> <%= link_to "Sign In", new_user_session_path %></p>
+  <% if !user_signed_in? %>
+  <h1> S#!t, I Can Cook! </h1>
+  <p> Please log in to continue to our recipe sharing community. </p>
+  <p> <%= link_to "Sign Up", new_user_registration_path %> | <%= link_to "Sign In", new_user_session_path %></p>
 
-<% else %>
-<%= render "recipes/index"%>
+  <% else %>
+  <%= render "recipes/index"%>
 
-<% end %>
+  <% end %>
 
+</div>

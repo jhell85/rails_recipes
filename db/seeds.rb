@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Recipe.destroy_all
+
+50.times do
+  recipe = Recipe.create!(
+    name: Faker::Food.dish,
+    content: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false ), 
+    author: Faker::Superhero.name,
+  )
+  recipe.image.attach(Faker::LoremPixel.image)
+end

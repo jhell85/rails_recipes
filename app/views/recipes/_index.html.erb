@@ -1,14 +1,18 @@
 <h1>Recipes index</h1>
 
 <% if @recipes.any? %>
-  <ul>
-    <% @recipes.each do |recipe| %>
-      <% if recipe.image.attached? %>
-        <%= image_tag recipe.image, size: "250x250" %>
-      <% end %>
-      <li><%= link_to recipe.name, recipe_path(recipe) %></li>
-    <% end %>
-  </ul>
+    <div class="container">
+      <div class="row">
+        <% @recipes.each do |recipe| %>
+          <div class="col-md-3">
+          <% if recipe.image.attached? %>
+            <%= image_tag recipe.image, size: "250x250" %>
+          <% end %>
+          <p><%= link_to recipe.name, recipe_path(recipe) %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
 <% else %>
   <p>There are no recipes yet.</p>
 <% end %>

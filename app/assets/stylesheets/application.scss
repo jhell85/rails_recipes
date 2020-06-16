@@ -1,0 +1,45 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#signin {
+  color: black;
+  padding-left: 45px;
+  padding-top: 15px;
+  font-weight: bold;
+}
+
+.box {
+  // justify-content: center;
+  background-color: rgba(231, 231, 231, 0.938);
+  margin: 10%;
+  padding: 25px;
+  padding-left: 300px;
+  padding-right: 100px;
+  position: static;
+  border-radius: 8px;
+}
+
+.jumbotron {
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
+}
+
+body {
+  // background: rgb(2,0,36);
+  // background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(9,121,108,1) 52%);
+  background-color: lightgray;
+}
+
+#left, #right {
+  background-image: linear-gradient(to bottom, #05001d, #06064e, #05095e, #050c6f, #040f81, #2c2492, #4638a4, #ada3dc, #c4c4c4, lightgray);
+  opacity: .6;
+	position: fixed;
+	}
+	#left, #right {
+		top: 0; bottom: 0;
+		width: 40px;
+		}
+		#left { left: 0; }
+    #right { right: 0; }

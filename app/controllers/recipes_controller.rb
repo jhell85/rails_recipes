@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
   def index 
     @recipes = Recipe.all 
     
-    render :index
+    redirect_to "/"
   end
 
   def new

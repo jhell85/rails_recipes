@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,16 +11,23 @@
   </head>
 
   <body>
+    
+      <div id ="signin">
+        <% if user_signed_in? %>
+          <%= current_user.email %> | <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> | <%= link_to "Home", recipes_path %>
+        <% end %>
+      </div>
 
+      <div class="container">
 
-  <% if user_signed_in? %>
-    <%= current_user.email %> | <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-  <% end %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
 
+        <div id="left"></div>
+        <div id="right"></div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
-  </body>
+        <%= yield %>
+      </div>  
+   
+  </body> 
 </html>
