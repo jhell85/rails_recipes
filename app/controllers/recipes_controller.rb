@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   
   before_action :only => [:show] do
-    redirect_to new_user_session_path unless(current_user)
+    redirect_to "/" unless(current_user)
   end
 
   before_action :only => [ :edit, :destroy] do

@@ -4,7 +4,7 @@
   <ul>
     <% @recipes.each do |recipe| %>
       <% if recipe.image.attached? %>
-        <%= image_tag recipe.image %>
+        <%= image_tag recipe.image, size: "250x250" %>
       <% end %>
       <li><%= link_to recipe.name, recipe_path(recipe) %></li>
     <% end %>
