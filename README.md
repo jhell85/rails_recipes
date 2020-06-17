@@ -1,4 +1,5 @@
 
+MAKE STYLES CLEANER/MORE PROFESSIONAL
 
 NEED TO MAKE PHOTOS DISPLAY, ALL CRUD FUNC WORK, MAKE PROFILE PAGES, STYLES, AUTHORIZATION!
 
@@ -81,6 +82,7 @@ rails s
  6. route protection for users only able to edit their own recipes unless a user has admin privleges 
  7. make ingredients table with a many to many relationship with recipes
  8. let user upload profile photo
+ 9. Split Ingredients from instructions on Recipe submission. Organize as list elements to be more readable.
 
 ## Known Bugs
 

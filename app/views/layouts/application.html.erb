@@ -1,5 +1,4 @@
-  
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
   <head>
     <title>Shit I Can Cook</title>
@@ -20,8 +19,8 @@
 
       <div class="container">
 
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <%= flash[:alert] %>
+        <%= flash[:notice] %>
 
         <div id="left"></div>
         <div id="right"></div>

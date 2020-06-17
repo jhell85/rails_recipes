@@ -1,0 +1,8 @@
+ <div class="crudbox">
+  <h3>Instructions for cooking your recipe</h3>
+  <%= form_for [@recipe, @instruction] do |f| %>
+    <%= f.text_area :steps, size: "60x10" %>
+    <br>
+    <%= f.submit %>
+  <% end %>
+ </div> 

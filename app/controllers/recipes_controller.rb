@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   end
 
   before_action :only => [ :edit, :destroy] do
-    redirect_to new_user_session_path unless(current_user && current_user.admin) || (current_user.id == Recipe.find(params[:id]).user_id)
+    redirect_to new_user_session_path unless(current_user.admin) || (current_user.id == Recipe.find(params[:id]).user_id)
   end
 
 
@@ -25,10 +25,11 @@ class RecipesController < ApplicationController
     @recipe.image.attach(params[:recipe][:image])
     if @recipe.save
       flash[:notice] = "Recipe created successfully"
-      redirect_to "/"
+      @instruction = @recipe.instructions.new
+      redirect_to new_recipe_instruction_path(@recipe, @instruction) 
     else  
       flash[:notice] = "Error, recipe not saved"
-      render :index
+      render :new
     end
   end
 

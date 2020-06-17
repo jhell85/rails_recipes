@@ -1,11 +1,21 @@
-<h1><%= @recipe.name %></h1>
-<h1><%= @recipe.content %></h1>
-<h1><%= @recipe.author %></h1>
-<% if @recipe.image.attached? %>
-  <%= image_tag @recipe.image, size: "250x250" %>
-<% end %>
-<% if (current_user && current_user.admin) || (current_user.id == Recipe.find(params[:id]).user_id) %>
-  <p><%= link_to "Edit", edit_recipe_path(@recipe) %></p>
-  <p><%= link_to "Delete", recipe_path(@recipe), :method => 'delete' %></p>
+<div>
+  <h1><%= @recipe.name %></h1>
+  <h3>Recipe: <%= @recipe.content %></h1>
+  <h4>Recipe by: <%= @recipe.author %></h1>
+  <% if @recipe.image.attached? %>
+    <%= image_tag @recipe.image, size: "250x250" %>
+  <% end %>
+  <% if @recipe.instructions.any? %>
+  <ul>
+    <% @recipe.instructions.each do |step| %>
+      <li><%= step.steps %></li>
+    <% end %>
+    </ul>
 
-<% end %>
+  <% end %>
+  <% if (current_user && current_user.admin) || (current_user.id == Recipe.find(params[:id]).user_id) %>
+    <p><%= link_to "Edit", edit_recipe_path(@recipe) %></p>
+    <p><%= link_to "Delete", recipe_path(@recipe), :method => 'delete' %></p>
+
+  <% end %>
+</div>  
