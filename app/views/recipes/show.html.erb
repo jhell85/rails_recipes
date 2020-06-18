@@ -1,21 +1,48 @@
-<div>
-  <h1><%= @recipe.name %></h1>
-  <h3>Recipe: <%= @recipe.content %></h1>
-  <h4>Recipe by: <%= @recipe.author %></h1>
-  <% if @recipe.image.attached? %>
-    <%= image_tag @recipe.image, size: "250x250" %>
-  <% end %>
-  <% if @recipe.instructions.any? %>
-  <ul>
-    <% @recipe.instructions.each do |step| %>
-      <li><%= step.steps %></li>
-    <% end %>
-    </ul>
+<div class="recipedisplay">
+  <h1><u><%= @recipe.name %></u></h1>
+  <h3><%= @recipe.content %></h1>
+  <h4>By: <%= @recipe.author %>  
 
-  <% end %>
-  <% if (current_user && current_user.admin) || (current_user.id == Recipe.find(params[:id]).user_id) %>
-    <p><%= link_to "Edit", edit_recipe_path(@recipe) %></p>
-    <p><%= link_to "Delete", recipe_path(@recipe), :method => 'delete' %></p>
+    <% if (current_user && current_user.admin)  || (current_user.id == Recipe.find(@recipe.id).user_id) %>
+      <strong> | <%= link_to "Add instructions",  new_recipe_instruction_path(@recipe) %> | <%= link_to "Add ingredients",  new_recipe_ingredient_path(@recipe) %> |
+      <%= link_to "Edit Recipe Description", edit_recipe_path(@recipe) %> |
+      <%= link_to "Delete", recipe_path(@recipe), :method => 'delete' %> </strong>
+    <% end %></h4>
 
-  <% end %>
-</div>  
+  <div class="row">
+    <div class="col-sm-4" id="imgpadding">
+      <% if @recipe.image.attached? %>
+        <%= image_tag @recipe.image, size: "250x250" %>
+      <% end %>
+    </div>  
+  
+    <div class="col-sm-4">
+        <% if @recipe.instructions.any? %>
+        <div class="well">
+          <ol>
+            <h2><u>Directions</u></h2>
+            <% @recipe.instructions.each do |step| %>
+            <li><%= step.steps %></li>
+            <% end %>
+            </ol>
+
+          <% end %>
+        </div>  
+    </div>  
+  
+    <div class="col-sm-4">
+        <% if @recipe.ingredients.any? %>
+        <div class="well">
+          <ul>
+            <h2><u>Ingredients</u></h2>
+            <% @recipe.ingredients.each do |ingredient| %>
+            <li><%= ingredient.name %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        </div>  
+    </div>
+  </div>   
+    
+  
+</div>

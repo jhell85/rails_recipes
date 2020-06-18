@@ -1,0 +1,8 @@
+ <div class="crudbox">
+  <h3>Ingredients for your recipe</h3>
+  <%= form_for [@recipe, @ingredient] do |f| %>
+  <%= f.text_field :name %>
+    <br>
+    <%= f.submit %>
+  <% end %>
+ </div> 

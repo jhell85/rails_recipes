@@ -25,8 +25,7 @@ class RecipesController < ApplicationController
     @recipe.image.attach(params[:recipe][:image])
     if @recipe.save
       flash[:notice] = "Recipe created successfully"
-      @instruction = @recipe.instructions.new
-      redirect_to new_recipe_instruction_path(@recipe, @instruction) 
+      render :show
     else  
       flash[:notice] = "Error, recipe not saved"
       render :new

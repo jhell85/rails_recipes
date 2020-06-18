@@ -9,8 +9,7 @@ class InstructionsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @instruction = @recipe.instructions.new(instruction_params)
     if @instruction.save
-      flash[:notice] = "step #{@instruction.id} saved."
-      render :new
+      render "recipes/show"
     else 
       flash[:notice] = "error step was not saved"
       render :new
@@ -18,7 +17,7 @@ class InstructionsController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(param[:id])
+    @recipe = Recipe.find(params[:id])
     @instruction = Instruction.find(params[:id])
     render :show
   end 
@@ -28,7 +27,7 @@ class InstructionsController < ApplicationController
     @instruction = Instruction.find(params[:id])
     if @instruction.update(instruction_params)
       flash[:notice] = "Instructions Successfully Updated!"
-      render :new
+      render "recipes/show"
     end
   end
 
@@ -36,6 +35,13 @@ class InstructionsController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @instruction = Instruction.find(params[:id])
     render :edit
+  end
+
+  def destroy
+    @instruction = Instruction.find(params[:id])
+    @instruction.destroy
+    flash[:notice] = "This instruction was successfully deleted!"
+    redirect to "recipe/show"
   end
 
   private

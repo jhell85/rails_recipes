@@ -19,6 +19,7 @@
   // padding-right: 100px;
   // position: static;
   border-radius: 8px;
+  // flex-wrap: wrap;
 }
 
 .crudbox {
@@ -31,42 +32,145 @@
   padding: 25px;
 }
 
+@keyframes stretch {
+  0% {
+    transform: scale(.3);
+    border-radius: 100%;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .jumbotron {
+  animation-name: slide-down;
+  animation-name: stretch;
+  animation-duration: 2s; 
+  // animation-timing-function: ease-out;
+  color: rgba(0, 0, 0, 0.74);
+  background-color: rgba(245, 245, 245, 0.63);
   margin-top: 100px;
   margin-left: 100px;
   margin-right: 100px;
   text-align: center;
 }
 
-#feedpadding {
+@keyframes slide-down {
+  from {
+    margin-top: -100%;
+    height: 300%; 
+  }
+
+  to {
+    margin-top: 0%;
+    height: 100%;
+  }
+}
+
+.jumbotron p {
+  font-weight: 350;
+}
+
+.jumbotron h1 {
+  animation-name: slide-down;
+  animation-duration: 2s; 
+  font-family: monospace;
+}
+
+.jumbotron h3 {
+  font-family: sans-serif;
+}
+
+.feedpadding {
   margin: 30px;
 }
 
+.gallery{
+  left: 10px;
+}
+
+.gallery:hover {
+  border: 1px solid #777;
+  border-top-left-radius: 4%;
+  border-top-right-radius: 4%;
+  border-bottom-right-radius: 4%;
+  border-bottom-left-radius: 4%;
+  opacity: .8;
+}
+
+#main_layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 #recipelink {
+  font-family: monospace;
   padding-left: 60px;
 }
 
+div.recipedisplay h1 {
+  font-family: monospace;
+  padding-left: 20px;
+  padding-top:15px;
+}
+
+div.recipedisplay h3 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 5px;
+}
+
+div.recipedisplay h4 {
+  padding-left: 23px;
+  padding-bottom: 5px;
+}
+
+div.recipedisplay.row {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#imgpadding {
+  float: right;
+}
+
+.well {
+  background-color: rgba(255, 255, 255, 0.575);
+}
+
 img {
-  border: inset;
-  border-width: 1px;
-  border-color: #c4c4c49f;
+  border: 1px solid #c4c4c49f;
   border-top-left-radius: 5%;
   border-top-right-radius: 5%;
   border-bottom-right-radius: 5%;
   border-bottom-left-radius: 5%;
+  // width: 100%;
+  // height: auto;
+}
+
+.default {
+  background-image: url("../images/default.png");
+}
+@keyframes bgtrans {
+  from {background-color: rgb(0, 19, 77);}
+  to {background-color: rgb(202, 202, 202);}
+}
+
+a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+  cursor: pointer;
 }
 
 body {
-  cursor: pointer;
-  // background: rgb(2,0,36);
-  // background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(9,121,108,1) 52%);
-  // background-image: url(../imgages/white_carbonfiber.jpg);
-  background-color: rgb(214, 214, 214);
+  background-color: rgb(202, 202, 202);
+  // animation-name: bgtrans;
+  // animation-duration: 2s;
 }
 
 #left, #right {
-  background-image: linear-gradient(to bottom, #05001d, #06064e, #05095e, #050c6f, #040f81, #2c2492, #3943cf, #a3b2dc, #c4c4c4, lightgray, lightgray);
-  opacity: .7;
+  background-color: rgb(0, 19, 77);
+  opacity: .8;
 	position: fixed;
 	}
 	#left, #right {
@@ -75,9 +179,3 @@ body {
 		}
 		#left { left: 0; }
     #right { right: 0; }
-
-// .box.flex {
-//       display: flex;
-//       justify-content: center;
-//       align-items: center;
-//     }

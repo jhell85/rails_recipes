@@ -1,20 +1,21 @@
+<h3>Welcome fellow S#!tty Cooks, please feel free to share your favorite recipes. Or follow along with one of these s#!tty recipes and you too will be saying "S#!t, I can cook!"</h4>
 <h1>Recipes index</h1>
 
+<p><strong><%= link_to "New Recipe", new_recipe_path %></strong></p>
+
 <% if @recipes.any? %>
-    <%# <div class="container"> %>
-      <div class="row">
+      <div id = "main_layout" class="row">
         <% @recipes.each do |recipe| %>
-          <div class="col-md-3" id="feedpadding">
-          <% if recipe.image.attached? %>
-            <%= image_tag recipe.image, size: "250x250" %>
-          <% end %>
-          <p id="recipelink"><%= link_to recipe.name, recipe_path(recipe) %></p>
+          <div class="col-md-3 feedpadding" >
+            <div class="gallery">
+              <a><% if recipe.image.attached? %>
+                <%= image_tag recipe.image, size: "250x250" %>
+              <% end %>
+            </div>  
+              <p id="recipelink"><%= link_to recipe.name, recipe_path(recipe) %></p></a>
           </div>
         <% end %>
       </div>
-    <%# </div> %>
 <% else %>
   <p>There are no recipes yet.</p>
 <% end %>
-
-<p><%= link_to "new recipe", new_recipe_path %></p>

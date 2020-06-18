@@ -1,4 +1,6 @@
 <%# <div class="box flex"> %>
+<%= render "layouts/errors", :object => @recipe %>
+
 <%= form_for @recipe do |f| %>
   <%= f.label :Title_your_recipe %>
   <%= f.text_field :name %>
